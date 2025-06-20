@@ -118,7 +118,7 @@ func (tm *TaskManager) ListTasks(filterDone *bool) []*Task {
 	tasks := make([]*Task, 0, len(tm.tasks))
 
 	for _, task := range tm.tasks {
-		if task.Done == *filterDone || filterDone == nil {
+		if  filterDone == nil || task.Done == *filterDone {
 			tasks = append(tasks, task)
 		}
 	}
